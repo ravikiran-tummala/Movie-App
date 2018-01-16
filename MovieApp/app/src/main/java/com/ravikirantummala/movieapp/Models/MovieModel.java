@@ -3,6 +3,7 @@ package com.ravikirantummala.movieapp.Models;
 import com.ravikirantummala.movieapp.Common.AppConstants;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -11,8 +12,7 @@ import org.json.JSONObject;
 
 public class MovieModel {
 
-    public MovieModel(String jsonString) {
-        JSONObject movieModelJSON = new JSONObject(jsonString);
+    public MovieModel(JSONObject movieModelJSON) throws JSONException {
         this.posterPath = movieModelJSON.getString(AppConstants.POSTER_PATH);
         this.isAdultRated = movieModelJSON.getBoolean(AppConstants.ADULT);
         this.overView = movieModelJSON.getString(AppConstants.OVERVIEW);

@@ -7,6 +7,5 @@ package com.ravikirantummala.movieapp.Services;
 public class ServiceFactory {
 
     private final String baseURL = "https://api.themoviedb.org/3/";
-    public static topRateMovieService
 
 }

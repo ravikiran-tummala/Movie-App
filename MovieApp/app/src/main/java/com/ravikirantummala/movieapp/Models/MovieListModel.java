@@ -3,6 +3,7 @@ package com.ravikirantummala.movieapp.Models;
 import com.ravikirantummala.movieapp.Common.AppConstants;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -17,16 +18,16 @@ public class MovieListModel {
     private int totalResults;
     private int totalPages;
 
-    public MovieModel(String jsonString){
-        JSONObject movieListJSON = new JSONObject(jsonString);
+    public MovieListModel(JSONObject movieListJSON) throws JSONException{
         this.page = movieListJSON.getInt(AppConstants.PAGE);
         this.totalPages = movieListJSON.getInt(AppConstants.TOTAL_PAGES);
         this.totalResults = movieListJSON.getInt(AppConstants.TOTAL_RESULTS);
         JSONArray movieModelList = movieListJSON.getJSONArray(AppConstants.RESULTS);
         int movieModelListLength = movieModelList.length();
         this.movieModels = new ArrayList<MovieModel>();
-        for (JSONObject movieModel:movieModelList) {
-            this.movieModels.add(MovieModel(movieModel));
+        for(int i=0;i<movieModelListLength;i++){
+            MovieModel movieModel = new MovieModel(movieModelList.getJSONObject(i));
+            this.movieModels.add(movieModel);
         }
     }
 
@@ -42,7 +43,7 @@ public class MovieListModel {
         return this.totalPages;
     }
 
-    public MovieModel[] getMovieModels(){
-        this.movieModels;
+    public ArrayList<MovieModel> getMovieModels(){
+        return this.movieModels;
     }
 }
