@@ -2,6 +2,7 @@ package ravikirantummala.movieapp.Services;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -42,6 +43,7 @@ public class ServiceFactory {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.e("Server Error",error.getMessage());
                 listener.onErrorResponse(error);
             }
         });
