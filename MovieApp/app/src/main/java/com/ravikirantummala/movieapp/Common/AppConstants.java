@@ -5,8 +5,12 @@ package com.ravikirantummala.movieapp.Common;
  */
 
 public class AppConstants {
-    public static final String API_KEY = "Paste your api key here";
+    public static final String SERVICE_API_KEY = "Paste your api key here";
 
+    // Request Keys
+    public static final String PAGE_KEY = "page";
+    public static final String API_KEY = "api_key";
+    public static final String LANGUAGE_KEY = "language";
     // JSON Response Keys
     public static final String POSTER_PATH = "poster_path";
     public static final String ADULT = "adult";
