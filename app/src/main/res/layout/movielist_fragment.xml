@@ -12,8 +12,9 @@
         android:id="@+id/gridView"
         android:gravity="center"
         android:columnWidth="@dimen/fab_columnwidth"
-        android:numColumns="auto_fit"
+        android:numColumns="3"
         android:verticalSpacing="@dimen/fab_margin"
+        android:background="@color/colorBlack"
         android:horizontalSpacing="@dimen/fab_margin"></GridView>
 
 </android.support.constraint.ConstraintLayout>

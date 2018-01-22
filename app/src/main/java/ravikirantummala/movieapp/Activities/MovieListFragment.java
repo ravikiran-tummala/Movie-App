@@ -1,19 +1,22 @@
 package ravikirantummala.movieapp.Activities;
 
-import android.media.Image;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
 import ravikirantummala.movieapp.CustomAdapters.ImageAdapter;
 import ravikirantummala.movieapp.Models.MovieListModel;
+import ravikirantummala.movieapp.Models.MovieModel;
 import ravikirantummala.movieapp.R;
 import ravikirantummala.movieapp.Services.ServerListener;
 import ravikirantummala.movieapp.Services.ServiceFactory;
@@ -24,7 +27,9 @@ import ravikirantummala.movieapp.Services.ServiceFactory;
 public class MovieListFragment extends Fragment implements ServerListener {
 
     private GridView mGridView;
-    private ArrayAdapter<Image> mImageArrayAdapter;
+    public List<MovieModel> movieModels;
+    private MovieClick mMovieClickListener;
+
 
     public MovieListFragment() {
     }
@@ -39,6 +44,16 @@ public class MovieListFragment extends Fragment implements ServerListener {
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try{
+            this.mMovieClickListener = (MovieClick) context;
+        }catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement MovieClick");
+        }
+    }
+
+    @Override
     public void onSuccessResponse(String response) {
         JSONObject jsonResponse = null;
         MovieListModel movieListModel = null;
@@ -50,6 +65,12 @@ public class MovieListFragment extends Fragment implements ServerListener {
         }
         ImageAdapter imageAdapter = new ImageAdapter(getActivity(),R.layout.imageview_adapter,R.id.imageView,movieListModel.getMovieModels());
         mGridView.setAdapter(imageAdapter);
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mMovieClickListener.onMovieClick(position);
+            }
+        });
     }
 
     @Override
