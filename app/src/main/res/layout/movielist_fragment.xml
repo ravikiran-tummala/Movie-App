@@ -6,15 +6,16 @@
     android:layout_height="match_parent"
     tools:context="ravikirantummala.movieapp.Activities.MovieListFragment"
     tools:showIn="@layout/activity_home">
+
     <GridView
+        android:id="@+id/gridView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/gridView"
-        android:gravity="center"
-        android:columnWidth="@dimen/fab_columnwidth"
-        android:numColumns="3"
-        android:verticalSpacing="@dimen/fab_margin"
         android:background="@color/colorBlack"
-        android:horizontalSpacing="@dimen/fab_margin"></GridView>
+        android:columnWidth="@dimen/fab_columnwidth"
+        android:gravity="center"
+        android:horizontalSpacing="@dimen/fab_margin"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="@dimen/fab_margin"></GridView>
 
 </android.support.constraint.ConstraintLayout>
