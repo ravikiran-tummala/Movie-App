@@ -9,12 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import ravikirantummala.movieapp.Common.SquaredImageView;
 import ravikirantummala.movieapp.Models.MovieModel;
 
 /**
@@ -55,37 +55,22 @@ public class ImageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        SquaredImageView view = (SquaredImageView) convertView;
-        if (view == null) {
-            view = new SquaredImageView(mContext);
+        ImageView imageView;
+        if (convertView == null){
+            View view = mInflater.inflate(mResourceLayout,null);
+            imageView = view.findViewById(mImageViewResourceId);
+        }else{
+            imageView = (ImageView) convertView;
         }
+
         Uri.Builder builder = Uri.parse(baseURL).buildUpon()
-                .appendPath(imageSize)
-                .appendEncodedPath(this.mMovieModels.get(position).getPosterPath());
+                                    .appendPath(imageSize)
+                                    .appendEncodedPath(this.mMovieModels.get(position).getPosterPath());
 
         String url = builder.toString();
-
         Picasso.with(mContext)
                 .load(url)
-                .into(view);
-        return view;
-//        ImageView imageView;
-//        if (convertView == null){
-//            View view = mInflater.inflate(mResourceLayout,null);
-//            imageView = view.findViewById(mImageViewResourceId);
-//        }else{
-//            imageView = (ImageView) convertView;
-//        }
-//
-//        Uri.Builder builder = Uri.parse(baseURL).buildUpon()
-//                                    .appendPath(imageSize)
-//                                    .appendEncodedPath(this.mMovieModels.get(position).getPosterPath());
-//
-//        String url = builder.toString();
-//        Picasso.with(mContext)
-//                .load(url).placeholder(R.mipmap.ic_launcher_round)
-//                .into(imageView);
-//        return imageView;
+                .into(imageView);
+        return imageView;
     }
 }
