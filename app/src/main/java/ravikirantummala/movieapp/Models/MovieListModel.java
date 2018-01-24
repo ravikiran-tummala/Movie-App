@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import ravikirantummala.movieapp.Common.AppConstants;
@@ -12,7 +13,7 @@ import ravikirantummala.movieapp.Common.AppConstants;
  * Created by ravikirantummala on 12/01/18.
  */
 
-public class MovieListModel {
+public class MovieListModel implements Serializable{
     private int page;
     private ArrayList<MovieModel> movieModels;
     private int totalResults;
