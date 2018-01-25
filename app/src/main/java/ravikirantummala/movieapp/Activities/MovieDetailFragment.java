@@ -38,9 +38,13 @@ public class MovieDetailFragment extends Fragment {
 
         this.mDetailImageView = view.findViewById(R.id.detailImageView);
         this.mMovieTitleTextView = view.findViewById(R.id.movieTitleEditText);
+        this.mMovieTitleTextView.setKeyListener(null);
         this.mReleaseDateTextView = view.findViewById(R.id.releaseDateEditText);
+        this.mReleaseDateTextView.setKeyListener(null);
         this.mVoteAverageTextView = view.findViewById(R.id.voteAverageEditText);
+        this.mVoteAverageTextView.setKeyListener(null);
         this.mSynopsisTextView = view.findViewById(R.id.synopsisEditText);
+        this.mSynopsisTextView.setKeyListener(null);
         return view;
     }
 
