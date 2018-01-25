@@ -30,4 +30,9 @@ public class AppConstants {
     public static final String RESULTS = "results";
     public static final String TOTAL_RESULTS = "total_results";
     public static final String TOTAL_PAGES = "total_pages";
+    // Intent Keys
+    public static final String MOVIE_MODEL_INTENT_KEY = "movieModel";
+
+    // URLS
+    public static final String POSTER_BASE_URL = "http://image.tmdb.org/t/p/";
 }

@@ -29,6 +29,7 @@ public class MovieListFragment extends Fragment implements ServerListener {
     private GridView mGridView;
     public List<MovieModel> movieModels;
     private MovieClick mMovieClickListener;
+    private MovieListModel mMovieListModel;
 
 
     public MovieListFragment() {
@@ -56,19 +57,18 @@ public class MovieListFragment extends Fragment implements ServerListener {
     @Override
     public void onSuccessResponse(String response) {
         JSONObject jsonResponse = null;
-        MovieListModel movieListModel = null;
         try {
             jsonResponse = new JSONObject(response);
-            movieListModel = new MovieListModel(jsonResponse);
+            this.mMovieListModel = new MovieListModel(jsonResponse);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ImageAdapter imageAdapter = new ImageAdapter(getActivity(),R.layout.imageview_adapter,R.id.imageView,movieListModel.getMovieModels());
+        ImageAdapter imageAdapter = new ImageAdapter(getActivity(),R.layout.imageview_adapter,R.id.imageView,this.mMovieListModel.getMovieModels());
         mGridView.setAdapter(imageAdapter);
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mMovieClickListener.onMovieClick(position);
+                mMovieClickListener.onMovieClick(mMovieListModel.getMovieModels().get(position));
             }
         });
     }

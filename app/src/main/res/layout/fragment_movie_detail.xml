@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ravikirantummala.movieapp.Activities.MovieDetailFragment"
+    tools:showIn="@layout/activity_movie_detail">
+
+    <ImageView
+        android:id="@+id/detailImageView"
+        android:contentDescription="@string/image_view_movie_detail_desc"
+        android:layout_width="368dp"
+        android:layout_height="228dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintStart_toStartOf="@+id/movieTitleEditText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/movieTitleEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="@+id/releaseDateEditText"
+        app:layout_constraintTop_toBottomOf="@+id/detailImageView" />
+
+    <EditText
+        android:id="@+id/synopsisEditText"
+        android:layout_width="368dp"
+        android:layout_height="157dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/releaseDateEditText"
+        android:layout_width="124dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="@+id/synopsisEditText"
+        app:layout_constraintTop_toBottomOf="@+id/movieTitleEditText" />
+
+    <ImageView
+        android:id="@+id/ratingImageView"
+        android:contentDescription="@string/star_view_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@mipmap/rating_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailImageView" />
+
+    <EditText
+        android:id="@+id/voteAverageEditText"
+        android:layout_width="50dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toStartOf="@+id/ratingImageView"
+        app:layout_constraintTop_toBottomOf="@+id/detailImageView" />
+
+</android.support.constraint.ConstraintLayout>

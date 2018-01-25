@@ -4,13 +4,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 import ravikirantummala.movieapp.Common.AppConstants;
 
 /**
  * Created by ravikirantummala on 12/01/18.
  */
 
-public class MovieModel {
+public class MovieModel implements Serializable{
 
     public MovieModel(JSONObject movieModelJSON) throws JSONException {
         this.posterPath = movieModelJSON.getString(AppConstants.POSTER_PATH);
