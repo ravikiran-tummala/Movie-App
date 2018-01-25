@@ -17,6 +17,10 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         MovieModel movieModel = (MovieModel) intent.getSerializableExtra(AppConstants.MOVIE_MODEL_INTENT_KEY);
+
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        MovieDetailFragment fragment = (MovieDetailFragment) fragmentManager.findFragmentById(R.id.fragment);
+        fragment.movieModel = movieModel;
     }
 
 }

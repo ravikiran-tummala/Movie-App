@@ -3,7 +3,6 @@ package ravikirantummala.movieapp.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import ravikirantummala.movieapp.Common.AppConstants;
 import ravikirantummala.movieapp.Models.MovieModel;
@@ -23,6 +22,5 @@ public class HomeActivity extends AppCompatActivity implements MovieClick{
         intent.setClass(this,MovieDetailActivity.class);
         intent.putExtra(AppConstants.MOVIE_MODEL_INTENT_KEY,movieModel);
         startActivity(intent);
-        Toast.makeText(this,movieModel.getOriginalTitle(),Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,7 +1,6 @@
 package ravikirantummala.movieapp.CustomAdapters;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -11,10 +10,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
+import ravikirantummala.movieapp.Common.AppConstants;
+import ravikirantummala.movieapp.Common.Utility;
 import ravikirantummala.movieapp.Models.MovieModel;
 
 /**
@@ -27,7 +26,6 @@ public class ImageAdapter extends BaseAdapter {
     private int mImageViewResourceId;
     private int mResourceLayout;
     private LayoutInflater mInflater;
-    private static final String baseURL = "http://image.tmdb.org/t/p/";
     private static final String imageSize = "w185";
 
     public ImageAdapter(@NonNull Context context, @LayoutRes int resource,
@@ -62,15 +60,7 @@ public class ImageAdapter extends BaseAdapter {
         }else{
             imageView = (ImageView) convertView;
         }
-
-        Uri.Builder builder = Uri.parse(baseURL).buildUpon()
-                                    .appendPath(imageSize)
-                                    .appendEncodedPath(this.mMovieModels.get(position).getPosterPath());
-
-        String url = builder.toString();
-        Picasso.with(mContext)
-                .load(url)
-                .into(imageView);
+        Utility.loadPicasso(AppConstants.POSTER_BASE_URL,imageSize,this.mMovieModels.get(position),this.mContext,imageView);
         return imageView;
     }
 }

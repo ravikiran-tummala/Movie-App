@@ -5,7 +5,7 @@ package ravikirantummala.movieapp.Common;
  */
 
 public class AppConstants {
-    public static final String SERVICE_API_KEY = "d43d2e89ebe46b2a695abf8260acf66b";
+    public static final String SERVICE_API_KEY = "Paste your api key here";
 
     // Request Keys
     public static final String PAGE_KEY = "page";
@@ -32,4 +32,7 @@ public class AppConstants {
     public static final String TOTAL_PAGES = "total_pages";
     // Intent Keys
     public static final String MOVIE_MODEL_INTENT_KEY = "movieModel";
+
+    // URLS
+    public static final String POSTER_BASE_URL = "http://image.tmdb.org/t/p/";
 }
