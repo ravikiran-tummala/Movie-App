@@ -11,7 +11,7 @@
         android:id="@+id/gridView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBlack"
+        android:background="@color/colorGrey"
         android:columnWidth="@dimen/fab_columnwidth"
         android:gravity="center"
         android:horizontalSpacing="@dimen/fab_margin"
