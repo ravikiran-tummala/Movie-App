@@ -12,7 +12,7 @@ import android.widget.GridView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import ravikirantummala.movieapp.CustomAdapters.ImageAdapter;
 import ravikirantummala.movieapp.Models.MovieListModel;
@@ -27,9 +27,8 @@ import ravikirantummala.movieapp.Services.ServiceFactory;
 public class MovieListFragment extends Fragment implements ServerListener {
 
     private GridView mGridView;
-    public List<MovieModel> movieModels;
+    public ArrayList<MovieModel> mMovieModels;
     private MovieClick mMovieClickListener;
-    private MovieListModel mMovieListModel;
 
 
     public MovieListFragment() {
@@ -40,8 +39,15 @@ public class MovieListFragment extends Fragment implements ServerListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.movielist_fragment, container, false);
         mGridView = view.findViewById(R.id.gridView);
+        initializeDataAndAdapters();
         ServiceFactory.getPopularMovieList(1,getActivity(),this);
         return view;
+    }
+
+    private void initializeDataAndAdapters(){
+        mMovieModels = new ArrayList<MovieModel>();
+        ImageAdapter imageAdapter = new ImageAdapter(getActivity(),R.layout.imageview_adapter,R.id.imageView,mMovieModels);
+        mGridView.setAdapter(imageAdapter);
     }
 
     @Override
@@ -59,16 +65,18 @@ public class MovieListFragment extends Fragment implements ServerListener {
         JSONObject jsonResponse = null;
         try {
             jsonResponse = new JSONObject(response);
-            this.mMovieListModel = new MovieListModel(jsonResponse);
+            MovieListModel movieListModel = new MovieListModel(jsonResponse);
+            mMovieModels.addAll(movieListModel.getMovieModels());
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ImageAdapter imageAdapter = new ImageAdapter(getActivity(),R.layout.imageview_adapter,R.id.imageView,this.mMovieListModel.getMovieModels());
-        mGridView.setAdapter(imageAdapter);
+        ImageAdapter adapter = (ImageAdapter) mGridView.getAdapter();
+        adapter.notifyDataSetChanged();
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mMovieClickListener.onMovieClick(mMovieListModel.getMovieModels().get(position));
+                mMovieClickListener.onMovieClick(mMovieModels.get(position));
             }
         });
     }
