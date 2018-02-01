@@ -3,6 +3,7 @@ package ravikirantummala.movieapp.Activities;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,7 @@ public class MovieListFragment extends Fragment implements ServerListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.movielist_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_movie_list, container, false);
         mGridView = view.findViewById(R.id.gridView);
         initializeDataAndAdapters();
         ServiceFactory.getPopularMovieList(1,getActivity(),this);
@@ -67,6 +68,7 @@ public class MovieListFragment extends Fragment implements ServerListener {
             jsonResponse = new JSONObject(response);
             MovieListModel movieListModel = new MovieListModel(jsonResponse);
             mMovieModels.addAll(movieListModel.getMovieModels());
+            Log.e("Hell","Hello");
 
         } catch (JSONException e) {
             e.printStackTrace();

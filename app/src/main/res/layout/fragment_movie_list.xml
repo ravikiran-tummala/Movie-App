@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ravikirantummala.movieapp.Activities.MovieListFragment"
+    tools:showIn="@layout/activity_home">
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGrey"
+        android:columnWidth="@dimen/fab_columnwidth"
+        android:gravity="center"
+        android:horizontalSpacing="@dimen/fab_margin"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="@dimen/fab_margin"></GridView>
+
+</android.support.constraint.ConstraintLayout>
