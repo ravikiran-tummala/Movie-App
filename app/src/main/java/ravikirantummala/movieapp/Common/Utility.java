@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 import ravikirantummala.movieapp.Models.MovieModel;
+import ravikirantummala.movieapp.R;
 
 /**
  * Created by ravikirantummala on 25/01/18.
@@ -21,6 +22,7 @@ public class Utility {
         String url = builder.toString();
         Picasso.with(context)
                 .load(url)
+                .placeholder(R.mipmap.movie_placeholder_icon)
                 .into(imageView);
     }
 }
