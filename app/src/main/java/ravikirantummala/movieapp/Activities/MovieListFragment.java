@@ -29,7 +29,7 @@ public class MovieListFragment extends Fragment implements ServerListener {
 
     private GridView mGridView;
     public ArrayList<MovieModel> mMovieModels;
-    private MovieClick mMovieClickListener;
+    private OnMovieClickListener mMovieClickListener;
 
 
     public MovieListFragment() {
@@ -55,7 +55,7 @@ public class MovieListFragment extends Fragment implements ServerListener {
     public void onAttach(Context context) {
         super.onAttach(context);
         try{
-            this.mMovieClickListener = (MovieClick) context;
+            this.mMovieClickListener = (OnMovieClickListener) context;
         }catch (ClassCastException e) {
             throw new ClassCastException(context.toString() + " must implement MovieClick");
         }
