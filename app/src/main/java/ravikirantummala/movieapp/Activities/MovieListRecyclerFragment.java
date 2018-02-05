@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -25,6 +26,10 @@ import ravikirantummala.movieapp.Services.PaginationListener;
 import ravikirantummala.movieapp.Services.ServerListener;
 import ravikirantummala.movieapp.Services.ServiceFactory;
 
+enum SortMovies{
+    MOST_POPULAR,TOP_RATED;
+}
+
 public class MovieListRecyclerFragment extends Fragment implements ServerListener,ImageRecyclerAdapter.OnItemClickListener,PaginationListener{
     public ArrayList<MovieModel> mMovieModels;
     private OnMovieClickListener mMovieClickListener;
@@ -33,10 +38,11 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
     private GridLayoutManager mGridLayoutManager;
     private int mTotalPages;
     private int mTotalResults;
-    private int mCurrentPage  = 1;
-    private int mPagesLoaded = 0;
+    private int mCurrentPage;
+    private int mPagesLoaded;
     private int mMoviesPerPage = 20;
     private static final String LOG_TAG = MovieListRecyclerFragment.class.getSimpleName();
+    private SortMovies mCurrentMenuState;
 
     public MovieListRecyclerFragment() {
         // Required empty public constructor
@@ -68,6 +74,14 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
                 if(mPagesLoaded == mCurrentPage && mPagesLoaded!=mTotalPages){
                     // Load more
                     MovieListRecyclerFragment movieListRecyclerFragment = (MovieListRecyclerFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment);
+                    switch (mCurrentMenuState){
+                        case TOP_RATED:
+                            ServiceFactory.getTopRatedList(mPagesLoaded+1,getActivity(),movieListRecyclerFragment);
+                            break;
+                        case MOST_POPULAR:
+                            ServiceFactory.getPopularMovieList(mPagesLoaded+1,getActivity(),movieListRecyclerFragment);
+                            break;
+                    }
 
                     ServiceFactory.getPopularMovieList(mPagesLoaded+1,getActivity(),movieListRecyclerFragment);
                     mProgressBar.setVisibility(View.VISIBLE);
@@ -81,11 +95,46 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
 
     }
 
-    private void loadPagesInitially(){
+    private void loadPopularPagesInitially(){
         for(int i=1;i<3;i++){
             ServiceFactory.getPopularMovieList(i,getActivity(),this);
             mProgressBar.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void loadMostRatedPagesInitially(){
+        for(int i=1;i<3;i++){
+            ServiceFactory.getTopRatedList(i,getActivity(),this);
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_topRated:
+                if (mCurrentMenuState != SortMovies.TOP_RATED){
+                    resetResults();
+                    loadMostRatedPagesInitially();
+                }
+                mCurrentMenuState = SortMovies.TOP_RATED;
+                break;
+
+            case R.id.action_mostPopular:
+                if (mCurrentMenuState != SortMovies.MOST_POPULAR){
+                    resetResults();
+                   loadPopularPagesInitially();
+                }
+                mCurrentMenuState = SortMovies.MOST_POPULAR;
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void resetResults(){
+        mCurrentPage = 1;
+        mPagesLoaded = 0;
+        mMovieModels.clear();
     }
 
     @Override
@@ -98,7 +147,9 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
         mProgressBar.setVisibility(View.GONE);
         mProgressBar.bringToFront();
         initializeDataAndAdapter();
-        loadPagesInitially();
+        resetResults();
+        loadPopularPagesInitially();
+        mCurrentMenuState = SortMovies.MOST_POPULAR;
         return view;
     }
 
@@ -127,6 +178,8 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
         try {
             jsonResponse = new JSONObject(response);
             MovieListModel movieListModel = new MovieListModel(jsonResponse);
+            this.mTotalResults = movieListModel.getTotalResults();
+            this.mTotalPages = movieListModel.getTotalPages();
             mMovieModels.addAll(movieListModel.getMovieModels());
             mPagesLoaded++;
         } catch (JSONException e) {
