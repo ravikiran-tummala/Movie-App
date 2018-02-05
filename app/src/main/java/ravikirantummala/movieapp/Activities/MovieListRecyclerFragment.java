@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +20,21 @@ import ravikirantummala.movieapp.CustomAdapters.ImageRecyclerAdapter;
 import ravikirantummala.movieapp.Models.MovieListModel;
 import ravikirantummala.movieapp.Models.MovieModel;
 import ravikirantummala.movieapp.R;
+import ravikirantummala.movieapp.Services.PaginationListener;
 import ravikirantummala.movieapp.Services.ServerListener;
 import ravikirantummala.movieapp.Services.ServiceFactory;
 
-public class MovieListRecyclerFragment extends Fragment implements ServerListener,ImageRecyclerAdapter.OnItemClickListener{
+public class MovieListRecyclerFragment extends Fragment implements ServerListener,ImageRecyclerAdapter.OnItemClickListener,PaginationListener{
     public ArrayList<MovieModel> mMovieModels;
     private OnMovieClickListener mMovieClickListener;
     private RecyclerView mRecyclerView;
+    private GridLayoutManager mGridLayoutManager;
+    private int mTotalPages;
+    private int mTotalResults;
+    private int mCurrentPage  = 1;
+    private int mPagesLoaded = 0;
+    private int mMoviesPerPage = 20;
+    private static final String LOG_TAG = MovieListRecyclerFragment.class.getSimpleName();
 
     public MovieListRecyclerFragment() {
         // Required empty public constructor
@@ -39,11 +48,40 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
 
     private void initializeDataAndAdapter(){
         mMovieModels = new ArrayList<MovieModel>();
-        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),AppConstants.gridElements));
+        mGridLayoutManager = new GridLayoutManager(getActivity(),AppConstants.gridElements);
+        mRecyclerView.setLayoutManager(mGridLayoutManager);
         ImageRecyclerAdapter imageRecyclerAdapter = new ImageRecyclerAdapter(getActivity(),R.layout.imageview_adapter,R.id.imageView,mMovieModels,this);
         mRecyclerView.setAdapter(imageRecyclerAdapter);
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int visibleItems,totalItems, firstVisibleItem, lastVisibleItem;
+                totalItems = mGridLayoutManager.getItemCount();
+                visibleItems = mGridLayoutManager.getChildCount();
+                firstVisibleItem = mGridLayoutManager.findFirstVisibleItemPosition();
+                lastVisibleItem = mGridLayoutManager.findLastVisibleItemPosition();
+
+                mCurrentPage = lastVisibleItem/mMoviesPerPage+1;
+                if(mPagesLoaded == mCurrentPage && mPagesLoaded!=mTotalPages){
+                    // Load more
+                    MovieListRecyclerFragment movieListRecyclerFragment = (MovieListRecyclerFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment);
+
+                    ServiceFactory.getPopularMovieList(mPagesLoaded+1,getActivity(),movieListRecyclerFragment);
+                }
+
+                Log.d(LOG_TAG," Total Items "+totalItems+" Visible Items "+visibleItems+" First Item "+firstVisibleItem+" Last Item "+lastVisibleItem);
+            }
+        });
 
 
+
+    }
+
+    private void loadPagesInitially(){
+        for(int i=1;i<3;i++){
+            ServiceFactory.getPopularMovieList(i,getActivity(),this);
+        }
     }
 
     @Override
@@ -53,7 +91,7 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
         View view = inflater.inflate(R.layout.fragment_movie_list_recycler,container,false);
         mRecyclerView = view.findViewById(R.id.recycleView);
         initializeDataAndAdapter();
-        ServiceFactory.getPopularMovieList(1,getActivity(),this);
+        loadPagesInitially();
         return view;
     }
 
@@ -66,6 +104,7 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
             throw new RuntimeException(context.toString()
                     + " must implement OnMovieClick");
         }
+        ServiceFactory.getTotalPagesAndResults(context,this);
     }
 
     @Override
@@ -81,11 +120,18 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
             jsonResponse = new JSONObject(response);
             MovieListModel movieListModel = new MovieListModel(jsonResponse);
             mMovieModels.addAll(movieListModel.getMovieModels());
+            mPagesLoaded++;
         } catch (JSONException e) {
             e.printStackTrace();
         }
         ImageRecyclerAdapter imageRecyclerAdapter = (ImageRecyclerAdapter) mRecyclerView.getAdapter();
         imageRecyclerAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onPageFetcherResponse(int totalPages, int totalResults) {
+        this.mTotalPages = totalPages;
+        this.mTotalResults = totalResults;
     }
 
     @Override

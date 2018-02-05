@@ -57,7 +57,7 @@ public class MovieListFragment extends Fragment implements ServerListener {
         try{
             this.mMovieClickListener = (OnMovieClickListener) context;
         }catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() + " must implement MovieClick");
+            throw new ClassCastException(context.toString() + " must implement OnMovieClickListener");
         }
     }
 
