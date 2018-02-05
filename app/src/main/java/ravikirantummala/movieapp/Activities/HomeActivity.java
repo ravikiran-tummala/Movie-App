@@ -14,6 +14,7 @@ public class HomeActivity extends FragmentActivity implements OnMovieClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        this.setTitle(R.string.title_activity_home);
     }
 
     @Override

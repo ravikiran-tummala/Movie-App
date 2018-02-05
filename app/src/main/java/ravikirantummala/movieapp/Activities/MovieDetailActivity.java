@@ -17,6 +17,7 @@ public class MovieDetailActivity extends FragmentActivity {
 
         Intent intent = getIntent();
         MovieModel movieModel = (MovieModel) intent.getSerializableExtra(AppConstants.MOVIE_MODEL_INTENT_KEY);
+        this.setTitle(movieModel.getTitle());
 
         android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
         MovieDetailFragment fragment = (MovieDetailFragment) fragmentManager.findFragmentById(R.id.fragment);

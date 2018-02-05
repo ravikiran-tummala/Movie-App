@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +29,7 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
     public ArrayList<MovieModel> mMovieModels;
     private OnMovieClickListener mMovieClickListener;
     private RecyclerView mRecyclerView;
+    private ProgressBar mProgressBar;
     private GridLayoutManager mGridLayoutManager;
     private int mTotalPages;
     private int mTotalResults;
@@ -68,6 +70,7 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
                     MovieListRecyclerFragment movieListRecyclerFragment = (MovieListRecyclerFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment);
 
                     ServiceFactory.getPopularMovieList(mPagesLoaded+1,getActivity(),movieListRecyclerFragment);
+                    mProgressBar.setVisibility(View.VISIBLE);
                 }
 
                 Log.d(LOG_TAG," Total Items "+totalItems+" Visible Items "+visibleItems+" First Item "+firstVisibleItem+" Last Item "+lastVisibleItem);
@@ -81,6 +84,7 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
     private void loadPagesInitially(){
         for(int i=1;i<3;i++){
             ServiceFactory.getPopularMovieList(i,getActivity(),this);
+            mProgressBar.setVisibility(View.VISIBLE);
         }
     }
 
@@ -90,6 +94,9 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_movie_list_recycler,container,false);
         mRecyclerView = view.findViewById(R.id.recycleView);
+        mProgressBar = view.findViewById(R.id.progressBar);
+        mProgressBar.setVisibility(View.GONE);
+        mProgressBar.bringToFront();
         initializeDataAndAdapter();
         loadPagesInitially();
         return view;
@@ -115,6 +122,7 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
 
     @Override
     public void onSuccessResponse(String response) {
+        mProgressBar.setVisibility(View.GONE);
         JSONObject jsonResponse = null;
         try {
             jsonResponse = new JSONObject(response);
@@ -136,7 +144,7 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
 
     @Override
     public void onErrorResponse(Exception error) {
-
+        mProgressBar.setVisibility(View.GONE);
     }
 
     @Override
