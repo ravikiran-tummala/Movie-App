@@ -20,8 +20,7 @@
         </activity>
         <activity
             android:name=".Activities.MovieDetailActivity"
-            android:label="@string/title_activity_movie_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/title_activity_movie_detail"></activity>
     </application>
 
 </manifest>
