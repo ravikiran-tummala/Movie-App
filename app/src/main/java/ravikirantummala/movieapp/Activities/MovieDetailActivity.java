@@ -2,13 +2,13 @@ package ravikirantummala.movieapp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import ravikirantummala.movieapp.Common.AppConstants;
 import ravikirantummala.movieapp.Models.MovieModel;
 import ravikirantummala.movieapp.R;
 
-public class MovieDetailActivity extends FragmentActivity {
+public class MovieDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
