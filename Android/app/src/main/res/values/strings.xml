@@ -6,5 +6,6 @@
     <string name="action_most_popular">Most Popular</string>
     <string name="title_activity_movie_detail">MovieDetailActivity</string>
     <string name="image_view_movie_detail_desc">Movie Poster</string>
+    <string name="calender_view_desc">Calendar Icon</string>
     <string name="star_view_desc">Rating Icon</string>
 </resources>

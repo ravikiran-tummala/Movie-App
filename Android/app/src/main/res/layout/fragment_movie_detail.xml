@@ -12,7 +12,6 @@
         android:id="@+id/detailImageView"
         android:layout_width="368dp"
         android:layout_height="228dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/image_view_movie_detail_desc"
@@ -22,6 +21,7 @@
 
     <EditText
         android:id="@+id/movieTitleEditText"
+        android:labelFor="@id/movieTitleEditText"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -35,6 +35,7 @@
 
     <EditText
         android:id="@+id/synopsisEditText"
+        android:labelFor="@id/synopsisEditText"
         android:layout_width="368dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -52,6 +53,7 @@
 
     <EditText
         android:id="@+id/releaseDateEditText"
+        android:labelFor="@id/releaseDateEditText"
         android:layout_width="110dp"
         android:layout_height="0dp"
         android:ems="10"
@@ -74,6 +76,7 @@
 
     <EditText
         android:id="@+id/voteAverageEditText"
+        android:labelFor="@id/voteAverageEditText"
         android:layout_width="50dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -89,6 +92,7 @@
 
     <ImageView
         android:id="@+id/calenderImageView"
+        android:contentDescription="@string/calender_view_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
