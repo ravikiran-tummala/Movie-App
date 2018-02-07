@@ -71,32 +71,32 @@ public class MovieListRecyclerFragment extends Fragment implements ServerListene
         mRecyclerView.setAdapter(imageRecyclerAdapter);
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                int visibleItems,totalItems, firstVisibleItem, lastVisibleItem;
-                totalItems = mGridLayoutManager.getItemCount();
-                visibleItems = mGridLayoutManager.getChildCount();
-                firstVisibleItem = mGridLayoutManager.findFirstVisibleItemPosition();
-                lastVisibleItem = mGridLayoutManager.findLastVisibleItemPosition();
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_SETTLING){
+                    int visibleItems,totalItems, firstVisibleItem, lastVisibleItem;
+                    totalItems = mGridLayoutManager.getItemCount();
+                    visibleItems = mGridLayoutManager.getChildCount();
+                    firstVisibleItem = mGridLayoutManager.findFirstVisibleItemPosition();
+                    lastVisibleItem = mGridLayoutManager.findLastVisibleItemPosition();
 
-                mCurrentPage = lastVisibleItem/mMoviesPerPage+1;
-                if(mPagesLoaded == mCurrentPage && mPagesLoaded!=mTotalPages){
-                    // Load more
-                    MovieListRecyclerFragment movieListRecyclerFragment = (MovieListRecyclerFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment);
-                    switch (mCurrentMenuState){
-                        case TOP_RATED:
-                            ServiceFactory.getTopRatedList(mPagesLoaded+1,getActivity(),movieListRecyclerFragment);
-                            break;
-                        case MOST_POPULAR:
-                            ServiceFactory.getPopularMovieList(mPagesLoaded+1,getActivity(),movieListRecyclerFragment);
-                            break;
+                    mCurrentPage = lastVisibleItem/mMoviesPerPage+1;
+                    if(mPagesLoaded == mCurrentPage && mPagesLoaded!=mTotalPages){
+                        // Load more
+                        MovieListRecyclerFragment movieListRecyclerFragment = (MovieListRecyclerFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.fragment);
+                        switch (mCurrentMenuState){
+                            case TOP_RATED:
+                                ServiceFactory.getTopRatedList(mPagesLoaded+1,getActivity(),movieListRecyclerFragment);
+                                break;
+                            case MOST_POPULAR:
+                                ServiceFactory.getPopularMovieList(mPagesLoaded+1,getActivity(),movieListRecyclerFragment);
+                                break;
+                        }
+                        mProgressBar.setVisibility(View.VISIBLE);
                     }
 
-                    ServiceFactory.getPopularMovieList(mPagesLoaded+1,getActivity(),movieListRecyclerFragment);
-                    mProgressBar.setVisibility(View.VISIBLE);
+                    Log.d(LOG_TAG," Total Items "+totalItems+" Visible Items "+visibleItems+" First Item "+firstVisibleItem+" Last Item "+lastVisibleItem);
                 }
-
-                Log.d(LOG_TAG," Total Items "+totalItems+" Visible Items "+visibleItems+" First Item "+firstVisibleItem+" Last Item "+lastVisibleItem);
             }
         });
 
