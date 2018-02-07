@@ -52,7 +52,7 @@
 
     <EditText
         android:id="@+id/releaseDateEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="0dp"
         android:ems="10"
         android:fontFamily="@font/holtwood_one_sc"
@@ -86,5 +86,14 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/ratingImageView"
         app:layout_constraintTop_toBottomOf="@+id/detailImageView" />
+
+    <ImageView
+        android:id="@+id/calenderImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:src="@mipmap/calendar_icon"
+        app:layout_constraintStart_toEndOf="@+id/releaseDateEditText"
+        app:layout_constraintTop_toTopOf="@+id/releaseDateEditText" />
 
 </android.support.constraint.ConstraintLayout>
