@@ -8,7 +8,7 @@
 
 import Foundation
 
-let API_KEY = "Paste your API Key here"
+let API_KEY = "Place your API key here"
 
 //MARK:  JSON Response Keys
 let POSTER_PATH_KEY = "poster_path"
@@ -29,6 +29,10 @@ let PAGE_KEY = "page"
 let RESULTS_KEY = "results"
 let TOTAL_RESULTS_KEY = "total_results"
 let TOTAL_PAGES_KEY = "total_pages"
+
+//MARK: Poster Request Params
+let POSTER_HOST = "image.tmdb.org"
+let POSTER_PATH = "/t/p/"
 
 
 

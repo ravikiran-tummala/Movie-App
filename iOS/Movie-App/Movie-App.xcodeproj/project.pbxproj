@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D3B832843FC2B83C49CC656 /* Pods_Movie_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0FA9150A64BC936D453B163 /* Pods_Movie_App.framework */; };
+		8E111A362045308F006B97D3 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E111A352045308F006B97D3 /* MovieCell.swift */; };
 		8E148AC2202ADE28008B8052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E148AC1202ADE28008B8052 /* AppDelegate.swift */; };
 		8E148AC7202ADE28008B8052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E148AC5202ADE28008B8052 /* Main.storyboard */; };
 		8E148ACA202ADE28008B8052 /* Movie_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E148AC8202ADE28008B8052 /* Movie_App.xcdatamodeld */; };
@@ -19,10 +20,12 @@
 		8EAC62D1202C927600A1F74A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62D0202C927600A1F74A /* Utility.swift */; };
 		8EAC62D3202C963000A1F74A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62D2202C963000A1F74A /* AppConstants.swift */; };
 		8EAC62D5202DB25100A1F74A /* MovieListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62D4202DB25100A1F74A /* MovieListModel.swift */; };
+		8EC1453A2045379900C20A14 /* movie_placeholder_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EC145392045379900C20A14 /* movie_placeholder_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		59FEF68404087F1ADB677CA2 /* Pods-Movie-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movie-App/Pods-Movie-App.debug.xcconfig"; sourceTree = "<group>"; };
+		8E111A352045308F006B97D3 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		8E148ABE202ADE28008B8052 /* Movie-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E148AC1202ADE28008B8052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E148AC6202ADE28008B8052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		8EAC62D0202C927600A1F74A /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		8EAC62D2202C963000A1F74A /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		8EAC62D4202DB25100A1F74A /* MovieListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListModel.swift; sourceTree = "<group>"; };
+		8EC145392045379900C20A14 /* movie_placeholder_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = movie_placeholder_icon.png; path = "../../../../Android/app/src/main/res/mipmap-xxxhdpi/movie_placeholder_icon.png"; sourceTree = "<group>"; };
 		A79C72A4DA110B8827D5EDFD /* Pods-Movie-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movie-App/Pods-Movie-App.release.xcconfig"; sourceTree = "<group>"; };
 		B0FA9150A64BC936D453B163 /* Pods_Movie_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movie_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -52,6 +56,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E111A332045304A006B97D3 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				8E111A352045308F006B97D3 /* MovieCell.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		8E111A3420453056006B97D3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8EC145392045379900C20A14 /* movie_placeholder_icon.png */,
+			);
+			name = Resources;
+			path = "New Group2";
+			sourceTree = "<group>";
+		};
 		8E148AB5202ADE28008B8052 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +94,8 @@
 		8E148AC0202ADE28008B8052 /* Movie-App */ = {
 			isa = PBXGroup;
 			children = (
+				8E111A3420453056006B97D3 /* Resources */,
+				8E111A332045304A006B97D3 /* CustomViews */,
 				8EAC62CF202C926100A1F74A /* Common */,
 				8EAC62CC202C639200A1F74A /* Models */,
 				8EAC62C7202C616000A1F74A /* Services */,
@@ -203,6 +226,7 @@
 				8E148ACF202ADE28008B8052 /* LaunchScreen.storyboard in Resources */,
 				8E148ACC202ADE28008B8052 /* Assets.xcassets in Resources */,
 				8E148AC7202ADE28008B8052 /* Main.storyboard in Resources */,
+				8EC1453A2045379900C20A14 /* movie_placeholder_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,10 +259,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Movie-App/Pods-Movie-App-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -269,6 +295,7 @@
 			files = (
 				8EAC62CB202C627E00A1F74A /* ServiceFactory.swift in Sources */,
 				8E148ACA202ADE28008B8052 /* Movie_App.xcdatamodeld in Sources */,
+				8E111A362045308F006B97D3 /* MovieCell.swift in Sources */,
 				8EAC62D1202C927600A1F74A /* Utility.swift in Sources */,
 				8EAC62CE202C63A800A1F74A /* MovieModel.swift in Sources */,
 				8EAC62D5202DB25100A1F74A /* MovieListModel.swift in Sources */,

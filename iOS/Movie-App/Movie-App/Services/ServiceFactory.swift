@@ -21,7 +21,7 @@ class ServiceFactory {
     static let pageTag = "page"
     
     
-    class func getPopularMovieList(forPage page:Int, completion: @escaping (_ response: String)->Void, failure: (_ error:Error) ->Void){
+    class func getPopularMovieList(forPage page:Int, completion: @escaping (_ response: MovieListModel)->Void, failure: @escaping (_ error:Error) ->Void){
         let urlComponents = NSURLComponents()
         urlComponents.host = baseURL
         urlComponents.scheme = urlScheme
@@ -38,6 +38,9 @@ class ServiceFactory {
             if let json = response.result.value{
                 print("JSON: \(json)")
                 let movieListModel = MovieListModel(fromJSONResponse: (json as? NSDictionary)!)
+                completion(movieListModel)
+            }else{
+                failure(response.result.error!)
             }
         }
     }

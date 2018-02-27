@@ -7,27 +7,27 @@
 //
 
 import Foundation
+import UIKit
+import SDWebImage
+
 
 class Utility {
-    class func convertToDictionary(fromText text:String) -> [String:Any]?{
-        if let data = text.data(using: .utf8) {
-            do{
-                return try (JSONSerialization.jsonObject(with: data, options: []) as? [String:Any])!
-            }catch{
-                print(error.localizedDescription)
-            }
+    class func loadSDWebImage(WithSize size:String,PosterPath posterPath:String,ImageView imageView:UIImageView){
+        let urlComponents = NSURLComponents()
+        urlComponents.host = POSTER_HOST
+        urlComponents.scheme = "http"
+        urlComponents.path = POSTER_PATH
+        
+        var url = urlComponents.url!
+        url.appendPathComponent(size)
+        url.appendPathComponent("/")
+        url.appendPathComponent(posterPath)
+        
+        
+        imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "movie_placeholder_icon.png"), options: []) { (image, error, cacheType, url) in
+            print("Error : \(error)")
         }
-        return nil
-    }
-    
-    class func convertToArray(fromText text:String) -> [String]?{
-        if let data = text.data(using: .utf8) {
-            do{
-                return try (JSONSerialization.jsonObject(with: data, options: []) as? [String])!
-            }catch{
-                print(error.localizedDescription)
-            }
-        }
-        return nil
+        
+        
     }
 }
