@@ -10,29 +10,67 @@ import UIKit
 
 private let reuseIdentifier = "MovieCell"
 private let thumbnailSize = "w185"
+private let initialPagesToLoad = 2
 
 class HomeViewController: UICollectionViewController {
     var movieModels = NSMutableArray()
+    var totalPages:Int = 0
+    var totalResults:Int = 0
+    var totalPagesLoaded:Int = 0
+    var currentPage:Int = 1
+    let moviesPerPage = 20
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        ServiceFactory.getPopularMovieList(forPage: 1, completion: { (movieListModel) in
-            self.movieModels.addObjects(from: movieListModel.movieModels)
-            self.collectionView?.reloadData()
+        ServiceFactory.getTotalPagesAndResults(completion: { (paginationModel) in
+            self.totalPages = paginationModel.totalPages.intValue
+            self.totalResults = paginationModel.totalResults.intValue
         }) { (error) in
             
         }
+        
+        loadPopularMoviesInitially()
+        
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Private Methods
+    
+    private func resetValues(){
+        self.totalPagesLoaded = 0
+        self.currentPage = 1
+    }
+    
+    private func loadPopularMoviesInitially(){
+        for index in 1...2{
+            ServiceFactory.getPopularMovieList(forPage: index, completion: { (movieListModel) in
+                self.movieModels.addObjects(from: movieListModel.movieModels)
+                self.totalPagesLoaded += 1
+                self.collectionView?.reloadData()
+            }, failure: { (error) in
+                
+            })
+        }
+    }
+    
+    private func loadTopRatedMoviesInitially(){
+        for index in 1...2{
+            ServiceFactory.getTopRatedMovieList(forPage: index, completion: { (movieListModel) in
+                self.movieModels.addObjects(from: movieListModel.movieModels)
+                self.totalPagesLoaded += 1
+                self.collectionView?.reloadData()
+            }, failure: { (error) in
+                
+            })
+        }
     }
 
     /*
