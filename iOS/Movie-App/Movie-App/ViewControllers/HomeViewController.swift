@@ -50,7 +50,7 @@ class HomeViewController: UICollectionViewController {
     }
     
     private func loadPopularMoviesInitially(){
-        for index in 1...2{
+        for index in 1...initialPagesToLoad{
             ServiceFactory.getPopularMovieList(forPage: index, completion: { (movieListModel) in
                 self.movieModels.addObjects(from: movieListModel.movieModels)
                 self.totalPagesLoaded += 1
@@ -62,9 +62,11 @@ class HomeViewController: UICollectionViewController {
     }
     
     private func loadTopRatedMoviesInitially(){
-        for index in 1...2{
+        for index in 1...initialPagesToLoad{
             ServiceFactory.getTopRatedMovieList(forPage: index, completion: { (movieListModel) in
                 self.movieModels.addObjects(from: movieListModel.movieModels)
+                self.totalPages = movieListModel.totalPages.intValue
+                self.totalResults = movieListModel.totalResults.intValue
                 self.totalPagesLoaded += 1
                 self.collectionView?.reloadData()
             }, failure: { (error) in
@@ -98,7 +100,26 @@ class HomeViewController: UICollectionViewController {
         return cell
     }
 
+
     // MARK: UICollectionViewDelegate
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let loadMore = (indexPath.row == movieModels.count-moviesPerPage-1) && (movieModels.count != self.totalResults)
+        if loadMore{
+            // load more
+            print("###### Loading More######")
+            currentPage += currentPage
+            ServiceFactory.getPopularMovieList(forPage: totalPagesLoaded+1, completion: { (movieModelList) in
+                self.movieModels.addObjects(from: movieModelList.movieModels)
+                self.totalPagesLoaded += 1
+                self.collectionView?.reloadData()
+                
+                
+            }, failure: { (error) in
+                
+            })
+        }
+    }
+
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking

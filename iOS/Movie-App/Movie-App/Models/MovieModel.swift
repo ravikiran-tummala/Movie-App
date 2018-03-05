@@ -9,6 +9,7 @@
 import Foundation
 class MovieModel {
     init(fromJSONResponse dictionary: NSDictionary) {
+        
         self.posterPath = (dictionary[POSTER_PATH_KEY] as? String)!
         self.isAdultRated = (dictionary[ADULT_KEY] as? Bool)!
         self.overView = (dictionary[OVERVIEW_KEY] as? String)!
@@ -17,7 +18,11 @@ class MovieModel {
         self.originalTitle = (dictionary[ORIGINAL_TITLE_KEY] as? String)!
         self.originalLanguage = (dictionary[ORIGINAL_LANGUAGE_KEY] as? String)!
         self.title = (dictionary[TITLE_KEY] as? String)!
-        self.backDropPath = (dictionary[BACKDROP_PATH_KEY] as? String)!
+        if let value = dictionary[BACKDROP_PATH_KEY] as? String {
+            self.backDropPath = value
+        }else{
+            self.backDropPath = ""
+        }
         self.popularity = (dictionary[POPULARITY_KEY] as? NSNumber)!
         self.voteCount = (dictionary[VOTE_COUNT_KEY] as? NSNumber)!
         self.isVideo = (dictionary[VIDEO_KEY] as? Bool)!
