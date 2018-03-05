@@ -21,6 +21,7 @@
 		8EAC62D3202C963000A1F74A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62D2202C963000A1F74A /* AppConstants.swift */; };
 		8EAC62D5202DB25100A1F74A /* MovieListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62D4202DB25100A1F74A /* MovieListModel.swift */; };
 		8EC1453A2045379900C20A14 /* movie_placeholder_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EC145392045379900C20A14 /* movie_placeholder_icon.png */; };
+		8EC1453C2045624400C20A14 /* PaginationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC1453B2045624400C20A14 /* PaginationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		8EAC62D2202C963000A1F74A /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		8EAC62D4202DB25100A1F74A /* MovieListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListModel.swift; sourceTree = "<group>"; };
 		8EC145392045379900C20A14 /* movie_placeholder_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = movie_placeholder_icon.png; path = "../../../../Android/app/src/main/res/mipmap-xxxhdpi/movie_placeholder_icon.png"; sourceTree = "<group>"; };
+		8EC1453B2045624400C20A14 /* PaginationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationModel.swift; sourceTree = "<group>"; };
 		A79C72A4DA110B8827D5EDFD /* Pods-Movie-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movie-App/Pods-Movie-App.release.xcconfig"; sourceTree = "<group>"; };
 		B0FA9150A64BC936D453B163 /* Pods_Movie_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movie_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -131,6 +133,7 @@
 			children = (
 				8EAC62CD202C63A800A1F74A /* MovieModel.swift */,
 				8EAC62D4202DB25100A1F74A /* MovieListModel.swift */,
+				8EC1453B2045624400C20A14 /* PaginationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				8E111A362045308F006B97D3 /* MovieCell.swift in Sources */,
 				8EAC62D1202C927600A1F74A /* Utility.swift in Sources */,
 				8EAC62CE202C63A800A1F74A /* MovieModel.swift in Sources */,
+				8EC1453C2045624400C20A14 /* PaginationModel.swift in Sources */,
 				8EAC62D5202DB25100A1F74A /* MovieListModel.swift in Sources */,
 				8EAC62D3202C963000A1F74A /* AppConstants.swift in Sources */,
 				8E148AC2202ADE28008B8052 /* AppDelegate.swift in Sources */,
