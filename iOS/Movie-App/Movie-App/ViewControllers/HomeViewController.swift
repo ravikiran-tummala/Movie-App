@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EZLoadingActivity
 
 private let reuseIdentifier = "MovieCell"
 private let thumbnailSize = "w185"
@@ -19,19 +20,36 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     var totalPagesLoaded:Int = 0
     var currentPage:Int = 1
     let moviesPerPage = 20
+    var currentSortSelection:Int = 0
     
     @IBOutlet weak var collectionView:UICollectionView!
+    @IBAction func sortClick(_ sender: UISegmentedControl) {
+        if currentSortSelection != sender.selectedSegmentIndex {
+            resetValues()
+            switch sender.selectedSegmentIndex{
+            case 0:
+                loadPopularMoviesInitially()
+            case 1:
+                loadTopRatedMoviesInitially()
+            default:
+                loadPopularMoviesInitially()
+            }
+        }
+        currentSortSelection = sender.selectedSegmentIndex
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+        EZLoadingActivity.show(LOADING_TEXT, disableUI: true)
         ServiceFactory.getTotalPagesAndResults(completion: { (paginationModel) in
             self.totalPages = paginationModel.totalPages.intValue
             self.totalResults = paginationModel.totalResults.intValue
+            EZLoadingActivity.hide(true, animated: true)
         }) { (error) in
-            
+            EZLoadingActivity.hide(true, animated: true)
         }
         
         loadPopularMoviesInitially()
@@ -46,33 +64,66 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     // MARK: - Private Methods
     
+    private func loadPopularMovies(){
+        EZLoadingActivity.show(LOADING_TEXT, disableUI: true)
+        ServiceFactory.getPopularMovieList(forPage: totalPagesLoaded+1, completion: { (movieModelList) in
+            self.movieModels.addObjects(from: movieModelList.movieModels)
+            self.totalPagesLoaded += 1
+            self.collectionView?.reloadData()
+            EZLoadingActivity.hide(true, animated: true)
+            
+        }, failure: { (error) in
+            EZLoadingActivity.hide(true, animated: true)
+        })
+    }
+    
+    private func loadTopRatedMovies(){
+        EZLoadingActivity.show(LOADING_TEXT, disableUI: true)
+        ServiceFactory.getTopRatedMovieList(forPage: totalPagesLoaded+1, completion: { (movieModelList) in
+            self.movieModels.addObjects(from: movieModelList.movieModels)
+            self.totalPagesLoaded += 1
+            self.collectionView?.reloadData()
+            EZLoadingActivity.hide(true, animated: true)
+        }, failure: { (error) in
+            EZLoadingActivity.hide(true, animated: true)
+        })
+    }
+    
     private func resetValues(){
         self.totalPagesLoaded = 0
         self.currentPage = 1
+        movieModels.removeAllObjects()
+        EZLoadingActivity.hide(true, animated: true)
     }
     
     private func loadPopularMoviesInitially(){
         for index in 1...initialPagesToLoad{
+            EZLoadingActivity.show(LOADING_TEXT, disableUI: true)
             ServiceFactory.getPopularMovieList(forPage: index, completion: { (movieListModel) in
                 self.movieModels.addObjects(from: movieListModel.movieModels)
+                self.totalPages = movieListModel.totalPages.intValue
+                self.totalResults = movieListModel.totalResults.intValue
                 self.totalPagesLoaded += 1
                 self.collectionView?.reloadData()
+                EZLoadingActivity.hide(true, animated: true)
             }, failure: { (error) in
-                
+                EZLoadingActivity.hide(true, animated: true)
             })
         }
     }
     
     private func loadTopRatedMoviesInitially(){
         for index in 1...initialPagesToLoad{
+            EZLoadingActivity.show(LOADING_TEXT, disableUI: true)
             ServiceFactory.getTopRatedMovieList(forPage: index, completion: { (movieListModel) in
                 self.movieModels.addObjects(from: movieListModel.movieModels)
                 self.totalPages = movieListModel.totalPages.intValue
                 self.totalResults = movieListModel.totalResults.intValue
                 self.totalPagesLoaded += 1
                 self.collectionView?.reloadData()
+                EZLoadingActivity.hide(true, animated: true)
             }, failure: { (error) in
-                
+                EZLoadingActivity.hide(true, animated: true)
             })
         }
     }
@@ -110,15 +161,15 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
             // load more
             print("###### Loading More######")
             currentPage += currentPage
-            ServiceFactory.getPopularMovieList(forPage: totalPagesLoaded+1, completion: { (movieModelList) in
-                self.movieModels.addObjects(from: movieModelList.movieModels)
-                self.totalPagesLoaded += 1
-                self.collectionView?.reloadData()
+            switch currentSortSelection{
+            case 0:
+                loadPopularMovies()
+            case 1:
+                loadTopRatedMovies()
                 
-                
-            }, failure: { (error) in
-                
-            })
+            default:
+                loadPopularMovies()
+            }
         }
     }
 

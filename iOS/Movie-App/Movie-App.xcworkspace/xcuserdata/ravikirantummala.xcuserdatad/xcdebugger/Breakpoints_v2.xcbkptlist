@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Movie-App/ViewControllers/HomeViewController.swift"
-            timestampString = "541952596.799872"
+            timestampString = "542021237.507001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "loadTopRatedMoviesInitially()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,13 +26,125 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Movie-App/ViewControllers/HomeViewController.swift"
-            timestampString = "541952596.800222"
+            timestampString = "542021237.507642"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "loadTopRatedMovies()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Movie-App/ViewControllers/HomeViewController.swift"
+            timestampString = "542021237.50789"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "loadPopularMoviesInitially()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Movie-App/ViewControllers/HomeViewController.swift"
+            timestampString = "542021237.508147"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "loadPopularMoviesInitially()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Movie_App.HomeViewController.(loadPopularMoviesInitially in _E6401F46D757720AA794F9A19DE0AAD3)() -&gt; ()"
+                  moduleName = "Movie-App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ravikirantummala/Desktop/Workspace/NaApp/iOS/Movie-App/Movie-App/ViewControllers/HomeViewController.swift"
+                  timestampString = "542021237.636749"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Movie_App.MovieListModel) -&gt; () in Movie_App.HomeViewController.(loadPopularMoviesInitially in _E6401F46D757720AA794F9A19DE0AAD3)() -&gt; ()"
+                  moduleName = "Movie-App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ravikirantummala/Desktop/Workspace/NaApp/iOS/Movie-App/Movie-App/ViewControllers/HomeViewController.swift"
+                  timestampString = "542021237.63915"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Movie-App/ViewControllers/HomeViewController.swift"
+            timestampString = "542021237.50843"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "loadTopRatedMoviesInitially()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Movie_App.HomeViewController.(loadTopRatedMoviesInitially in _E6401F46D757720AA794F9A19DE0AAD3)() -&gt; ()"
+                  moduleName = "Movie-App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ravikirantummala/Desktop/Workspace/NaApp/iOS/Movie-App/Movie-App/ViewControllers/HomeViewController.swift"
+                  timestampString = "542021237.6447099"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Movie_App.MovieListModel) -&gt; () in Movie_App.HomeViewController.(loadTopRatedMoviesInitially in _E6401F46D757720AA794F9A19DE0AAD3)() -&gt; ()"
+                  moduleName = "Movie-App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ravikirantummala/Desktop/Workspace/NaApp/iOS/Movie-App/Movie-App/ViewControllers/HomeViewController.swift"
+                  timestampString = "542021237.647302"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
