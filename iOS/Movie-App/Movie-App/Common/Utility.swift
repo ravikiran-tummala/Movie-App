@@ -25,7 +25,7 @@ class Utility {
         
         
         imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "movie_placeholder_icon.png"), options: []) { (image, error, cacheType, url) in
-            print("Error : \(error)")
+            print("Error : \(String(describing: error?.localizedDescription))")
         }
         
         
