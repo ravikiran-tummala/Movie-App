@@ -36,7 +36,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_placeholder_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-Ub-S97">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_placeholder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-Ub-S97">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
@@ -84,11 +84,51 @@
                     <navigationItem key="navigationItem" title="Home" id="4nl-EI-4HH"/>
                     <connections>
                         <outlet property="collectionView" destination="b8S-Yg-gb0" id="71L-sD-iaf"/>
+                        <segue destination="fsO-aI-KPu" kind="push" id="Tca-yT-dEW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHO-Sn-auC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1768.8" y="187.55622188905548"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="vrb-bU-X9l">
+            <objects>
+                <viewController id="fsO-aI-KPu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R1P-PE-BpF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGW-0U-WA7">
+                                <rect key="frame" x="16" y="98" width="343" height="250"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_detail_placeholder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bjj-fC-Hzv">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="250"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nMh-aE-Hqg">
+                                <rect key="frame" x="16" y="368" width="343" height="411"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nMh-aE-Hqg" firstAttribute="trailing" secondItem="pGW-0U-WA7" secondAttribute="trailing" id="29Z-gT-TQA"/>
+                            <constraint firstItem="pGW-0U-WA7" firstAttribute="top" secondItem="ubN-i7-l6m" secondAttribute="top" constant="10" id="DXF-Ir-ZMY"/>
+                            <constraint firstItem="nMh-aE-Hqg" firstAttribute="top" secondItem="R1P-PE-BpF" secondAttribute="top" constant="368" id="E9j-RG-cHI"/>
+                            <constraint firstItem="nMh-aE-Hqg" firstAttribute="leading" secondItem="pGW-0U-WA7" secondAttribute="leading" id="JlM-fK-5Ma"/>
+                            <constraint firstItem="nMh-aE-Hqg" firstAttribute="trailing" secondItem="R1P-PE-BpF" secondAttribute="trailingMargin" id="VKq-5M-9G7"/>
+                            <constraint firstItem="nMh-aE-Hqg" firstAttribute="top" secondItem="pGW-0U-WA7" secondAttribute="bottom" constant="20" id="Y5m-nE-I3a"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="nMh-aE-Hqg" secondAttribute="bottom" constant="-1" id="w05-zH-tsf"/>
+                            <constraint firstItem="nMh-aE-Hqg" firstAttribute="leading" secondItem="R1P-PE-BpF" secondAttribute="leadingMargin" id="wMC-aF-DJl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ubN-i7-l6m"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail" id="De4-FU-Lmm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SBQ-yc-T0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2532" y="180.29556650246306"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="80f-Yn-Up6">
@@ -114,6 +154,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="movie_placeholder_icon.png" width="128" height="128"/>
+        <image name="movie_detail_placeholder_icon" width="128" height="128"/>
+        <image name="movie_placeholder_icon" width="64" height="64"/>
     </resources>
 </document>
