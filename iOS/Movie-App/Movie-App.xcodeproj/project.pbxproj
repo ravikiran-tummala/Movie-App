@@ -15,12 +15,14 @@
 		8E148ACC202ADE28008B8052 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E148ACB202ADE28008B8052 /* Assets.xcassets */; };
 		8E148ACF202ADE28008B8052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E148ACD202ADE28008B8052 /* LaunchScreen.storyboard */; };
 		8E148ADF202ADF17008B8052 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E148ADE202ADF17008B8052 /* HomeViewController.swift */; };
+		8E7F573E2056AA3F004D6295 /* HennyPenny-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F573D2056AA3F004D6295 /* HennyPenny-Regular.ttf */; };
+		8E7F57402056AA6E004D6295 /* HoltwoodOneSC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F573F2056AA6E004D6295 /* HoltwoodOneSC.ttf */; };
+		8E7F57422056AC67004D6295 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F57412056AC67004D6295 /* MovieDetailsViewController.swift */; };
 		8EAC62CB202C627E00A1F74A /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62CA202C627E00A1F74A /* ServiceFactory.swift */; };
 		8EAC62CE202C63A800A1F74A /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62CD202C63A800A1F74A /* MovieModel.swift */; };
 		8EAC62D1202C927600A1F74A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62D0202C927600A1F74A /* Utility.swift */; };
 		8EAC62D3202C963000A1F74A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62D2202C963000A1F74A /* AppConstants.swift */; };
 		8EAC62D5202DB25100A1F74A /* MovieListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62D4202DB25100A1F74A /* MovieListModel.swift */; };
-		8EC1453A2045379900C20A14 /* movie_placeholder_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EC145392045379900C20A14 /* movie_placeholder_icon.png */; };
 		8EC1453C2045624400C20A14 /* PaginationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC1453B2045624400C20A14 /* PaginationModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,12 +37,14 @@
 		8E148ACE202ADE28008B8052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E148AD0202ADE28008B8052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E148ADE202ADF17008B8052 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8E7F573D2056AA3F004D6295 /* HennyPenny-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HennyPenny-Regular.ttf"; sourceTree = "<group>"; };
+		8E7F573F2056AA6E004D6295 /* HoltwoodOneSC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HoltwoodOneSC.ttf; sourceTree = "<group>"; };
+		8E7F57412056AC67004D6295 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		8EAC62CA202C627E00A1F74A /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		8EAC62CD202C63A800A1F74A /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		8EAC62D0202C927600A1F74A /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		8EAC62D2202C963000A1F74A /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		8EAC62D4202DB25100A1F74A /* MovieListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListModel.swift; sourceTree = "<group>"; };
-		8EC145392045379900C20A14 /* movie_placeholder_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = movie_placeholder_icon.png; path = "../../../../Android/app/src/main/res/mipmap-xxxhdpi/movie_placeholder_icon.png"; sourceTree = "<group>"; };
 		8EC1453B2045624400C20A14 /* PaginationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationModel.swift; sourceTree = "<group>"; };
 		A79C72A4DA110B8827D5EDFD /* Pods-Movie-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Movie-App/Pods-Movie-App.release.xcconfig"; sourceTree = "<group>"; };
 		B0FA9150A64BC936D453B163 /* Pods_Movie_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movie_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,15 +70,6 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
-		8E111A3420453056006B97D3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				8EC145392045379900C20A14 /* movie_placeholder_icon.png */,
-			);
-			name = Resources;
-			path = "New Group2";
-			sourceTree = "<group>";
-		};
 		8E148AB5202ADE28008B8052 = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +91,7 @@
 		8E148AC0202ADE28008B8052 /* Movie-App */ = {
 			isa = PBXGroup;
 			children = (
-				8E111A3420453056006B97D3 /* Resources */,
+				8E7F573C2056AA29004D6295 /* Fonts */,
 				8E111A332045304A006B97D3 /* CustomViews */,
 				8EAC62CF202C926100A1F74A /* Common */,
 				8EAC62CC202C639200A1F74A /* Models */,
@@ -116,8 +111,18 @@
 			isa = PBXGroup;
 			children = (
 				8E148ADE202ADF17008B8052 /* HomeViewController.swift */,
+				8E7F57412056AC67004D6295 /* MovieDetailsViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8E7F573C2056AA29004D6295 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8E7F573F2056AA6E004D6295 /* HoltwoodOneSC.ttf */,
+				8E7F573D2056AA3F004D6295 /* HennyPenny-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		8EAC62C7202C616000A1F74A /* Services */ = {
@@ -227,9 +232,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E148ACF202ADE28008B8052 /* LaunchScreen.storyboard in Resources */,
+				8E7F573E2056AA3F004D6295 /* HennyPenny-Regular.ttf in Resources */,
 				8E148ACC202ADE28008B8052 /* Assets.xcassets in Resources */,
 				8E148AC7202ADE28008B8052 /* Main.storyboard in Resources */,
-				8EC1453A2045379900C20A14 /* movie_placeholder_icon.png in Resources */,
+				8E7F57402056AA6E004D6295 /* HoltwoodOneSC.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +309,7 @@
 				8E111A362045308F006B97D3 /* MovieCell.swift in Sources */,
 				8EAC62D1202C927600A1F74A /* Utility.swift in Sources */,
 				8EAC62CE202C63A800A1F74A /* MovieModel.swift in Sources */,
+				8E7F57422056AC67004D6295 /* MovieDetailsViewController.swift in Sources */,
 				8EC1453C2045624400C20A14 /* PaginationModel.swift in Sources */,
 				8EAC62D5202DB25100A1F74A /* MovieListModel.swift in Sources */,
 				8EAC62D3202C963000A1F74A /* AppConstants.swift in Sources */,

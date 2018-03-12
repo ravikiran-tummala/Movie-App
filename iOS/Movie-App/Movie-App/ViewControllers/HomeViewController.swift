@@ -22,6 +22,9 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     let moviesPerPage = 20
     var currentSortSelection:Int = 0
     
+    private(set) var selectedIndex:NSInteger?
+    
+    
     @IBOutlet weak var collectionView:UICollectionView!
     @IBAction func sortClick(_ sender: UISegmentedControl) {
         if currentSortSelection != sender.selectedSegmentIndex {
@@ -171,6 +174,16 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                 loadPopularMovies()
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedIndex = indexPath.row
+        self.performSegue(withIdentifier: MOVIE_DETAIL_SEGUE, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let movieDetailsViewController = (segue.destination as? MovieDetailsViewController)!
+        movieDetailsViewController.movieDetails = movieModels[selectedIndex!] as? MovieModel
     }
 
 

@@ -37,6 +37,9 @@ let POSTER_PATH = "/t/p/"
 //MARK: App Texts
 let LOADING_TEXT = "Loading"
 
+//MARK: Segue Constants
+let MOVIE_DETAIL_SEGUE = "MovieDetailSegue"
+
 
 
 
