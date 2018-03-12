@@ -10,6 +10,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HennyPenny-Regular.ttf">
+            <string>HennyPenny-Regular</string>
+        </array>
+        <array key="HoltwoodOneSC.ttf">
+            <string>HoltwoodOneSC</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home-->
         <scene sceneID="WYi-oz-1KY">
@@ -99,29 +107,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGW-0U-WA7">
-                                <rect key="frame" x="16" y="98" width="343" height="250"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_detail_placeholder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="bjj-fC-Hzv">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="250"/>
-                                    </imageView>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nMh-aE-Hqg">
-                                <rect key="frame" x="16" y="368" width="343" height="411"/>
-                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="movie_detail_placeholder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="J90-CT-14s">
+                                <rect key="frame" x="16" y="98" width="343" height="282"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Black Panther" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZZ-uY-ssi">
+                                <rect key="frame" x="16" y="400" width="219" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HoltwoodOneSC" family="Holtwood One SC" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2018-02-13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uII-dH-d2z">
+                                <rect key="frame" x="16" y="450" width="147" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HoltwoodOneSC" family="Holtwood One SC" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rating_icon" translatesAutoresizingMaskIntoConstraints="NO" id="IHJ-po-fn6">
+                                <rect key="frame" x="317" y="407" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Bs-d9-BhE">
+                                <rect key="frame" x="16" y="500" width="333" height="251"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HennyPenny-Regular" family="Henny Penny" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="7.4" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPr-gl-ObM">
+                                <rect key="frame" x="243" y="400" width="72" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HoltwoodOneSC" family="Holtwood One SC" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="calendar_icon" translatesAutoresizingMaskIntoConstraints="NO" id="t6u-Ng-LlP">
+                                <rect key="frame" x="166" y="451" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="nMh-aE-Hqg" firstAttribute="trailing" secondItem="pGW-0U-WA7" secondAttribute="trailing" id="29Z-gT-TQA"/>
-                            <constraint firstItem="pGW-0U-WA7" firstAttribute="top" secondItem="ubN-i7-l6m" secondAttribute="top" constant="10" id="DXF-Ir-ZMY"/>
-                            <constraint firstItem="nMh-aE-Hqg" firstAttribute="top" secondItem="R1P-PE-BpF" secondAttribute="top" constant="368" id="E9j-RG-cHI"/>
-                            <constraint firstItem="nMh-aE-Hqg" firstAttribute="leading" secondItem="pGW-0U-WA7" secondAttribute="leading" id="JlM-fK-5Ma"/>
-                            <constraint firstItem="nMh-aE-Hqg" firstAttribute="trailing" secondItem="R1P-PE-BpF" secondAttribute="trailingMargin" id="VKq-5M-9G7"/>
-                            <constraint firstItem="nMh-aE-Hqg" firstAttribute="top" secondItem="pGW-0U-WA7" secondAttribute="bottom" constant="20" id="Y5m-nE-I3a"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="nMh-aE-Hqg" secondAttribute="bottom" constant="-1" id="w05-zH-tsf"/>
-                            <constraint firstItem="nMh-aE-Hqg" firstAttribute="leading" secondItem="R1P-PE-BpF" secondAttribute="leadingMargin" id="wMC-aF-DJl"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ubN-i7-l6m"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="De4-FU-Lmm"/>
@@ -154,7 +183,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar_icon" width="48" height="48"/>
         <image name="movie_detail_placeholder_icon" width="128" height="128"/>
         <image name="movie_placeholder_icon" width="64" height="64"/>
+        <image name="rating_icon" width="36" height="36"/>
     </resources>
 </document>

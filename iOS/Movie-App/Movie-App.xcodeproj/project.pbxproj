@@ -15,6 +15,8 @@
 		8E148ACC202ADE28008B8052 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E148ACB202ADE28008B8052 /* Assets.xcassets */; };
 		8E148ACF202ADE28008B8052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E148ACD202ADE28008B8052 /* LaunchScreen.storyboard */; };
 		8E148ADF202ADF17008B8052 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E148ADE202ADF17008B8052 /* HomeViewController.swift */; };
+		8E7F573E2056AA3F004D6295 /* HennyPenny-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F573D2056AA3F004D6295 /* HennyPenny-Regular.ttf */; };
+		8E7F57402056AA6E004D6295 /* HoltwoodOneSC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F573F2056AA6E004D6295 /* HoltwoodOneSC.ttf */; };
 		8EAC62CB202C627E00A1F74A /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62CA202C627E00A1F74A /* ServiceFactory.swift */; };
 		8EAC62CE202C63A800A1F74A /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62CD202C63A800A1F74A /* MovieModel.swift */; };
 		8EAC62D1202C927600A1F74A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62D0202C927600A1F74A /* Utility.swift */; };
@@ -34,6 +36,8 @@
 		8E148ACE202ADE28008B8052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E148AD0202ADE28008B8052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E148ADE202ADF17008B8052 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8E7F573D2056AA3F004D6295 /* HennyPenny-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HennyPenny-Regular.ttf"; sourceTree = "<group>"; };
+		8E7F573F2056AA6E004D6295 /* HoltwoodOneSC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HoltwoodOneSC.ttf; sourceTree = "<group>"; };
 		8EAC62CA202C627E00A1F74A /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		8EAC62CD202C63A800A1F74A /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		8EAC62D0202C927600A1F74A /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 		8E148AC0202ADE28008B8052 /* Movie-App */ = {
 			isa = PBXGroup;
 			children = (
+				8E7F573C2056AA29004D6295 /* Fonts */,
 				8E111A332045304A006B97D3 /* CustomViews */,
 				8EAC62CF202C926100A1F74A /* Common */,
 				8EAC62CC202C639200A1F74A /* Models */,
@@ -106,6 +111,15 @@
 				8E148ADE202ADF17008B8052 /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8E7F573C2056AA29004D6295 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8E7F573F2056AA6E004D6295 /* HoltwoodOneSC.ttf */,
+				8E7F573D2056AA3F004D6295 /* HennyPenny-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		8EAC62C7202C616000A1F74A /* Services */ = {
@@ -215,8 +229,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E148ACF202ADE28008B8052 /* LaunchScreen.storyboard in Resources */,
+				8E7F573E2056AA3F004D6295 /* HennyPenny-Regular.ttf in Resources */,
 				8E148ACC202ADE28008B8052 /* Assets.xcassets in Resources */,
 				8E148AC7202ADE28008B8052 /* Main.storyboard in Resources */,
+				8E7F57402056AA6E004D6295 /* HoltwoodOneSC.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
