@@ -182,6 +182,13 @@
                         <viewLayoutGuide key="safeArea" id="ubN-i7-l6m"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="De4-FU-Lmm"/>
+                    <connections>
+                        <outlet property="movieImageView" destination="J90-CT-14s" id="YhX-hn-5y4"/>
+                        <outlet property="movieTitleLabel" destination="VZZ-uY-ssi" id="ovx-05-4Wp"/>
+                        <outlet property="ratingLabel" destination="FPr-gl-ObM" id="0jM-bf-yWe"/>
+                        <outlet property="releaseDateLabel" destination="uII-dH-d2z" id="pC9-T2-b1d"/>
+                        <outlet property="summaryTextView" destination="6Bs-d9-BhE" id="lsj-m5-Syb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SBQ-yc-T0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

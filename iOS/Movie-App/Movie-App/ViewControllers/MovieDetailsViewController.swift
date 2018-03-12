@@ -7,8 +7,14 @@
 //
 
 import UIKit
-
+private let imageSize = "w500"
 class MovieDetailsViewController: UIViewController {
+    
+    @IBOutlet weak var movieTitleLabel:UILabel!
+    @IBOutlet weak var ratingLabel:UILabel!
+    @IBOutlet weak var summaryTextView:UITextView!
+    @IBOutlet weak var movieImageView:UIImageView!
+    @IBOutlet weak var releaseDateLabel:UILabel!
     
     var movieDetails:MovieModel?
 
@@ -16,6 +22,12 @@ class MovieDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        Utility.loadSDWebImage(WithSize: imageSize, PosterPath: (movieDetails?.posterPath)!, ImageView: self.movieImageView)
+        self.movieTitleLabel.text = movieDetails?.originalTitle
+        self.navigationItem.title = movieDetails?.title
+        self.ratingLabel.text = movieDetails?.voteAverage.stringValue
+        self.releaseDateLabel.text = movieDetails?.releaseDate
+        self.summaryTextView.text = movieDetails?.overView
     }
 
     override func didReceiveMemoryWarning() {
