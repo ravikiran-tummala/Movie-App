@@ -8,7 +8,7 @@
 
 import Foundation
 
-let API_KEY = "Paste your API Key here"
+let API_KEY = "Paste your api key here"
 
 //MARK:  JSON Response Keys
 let POSTER_PATH_KEY = "poster_path"
