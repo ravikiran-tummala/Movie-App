@@ -12,8 +12,10 @@ import EZLoadingActivity
 private let reuseIdentifier = "MovieCell"
 private let thumbnailSize = "w185"
 private let initialPagesToLoad = 2
+//MARK: Size
+let iPhonePlusSize:CGFloat = 1242.0
 
-class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     var movieModels = NSMutableArray()
     var totalPages:Int = 0
     var totalResults:Int = 0
@@ -21,11 +23,14 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     var currentPage:Int = 1
     let moviesPerPage = 20
     var currentSortSelection:Int = 0
+    var portraitWidth:CGFloat = 0
+    var fallbackWidth:CGFloat = 90
     
     private(set) var selectedIndex:NSInteger?
     
     
     @IBOutlet weak var collectionView:UICollectionView!
+    @IBOutlet weak var flowLayout:UICollectionViewFlowLayout!
     @IBAction func sortClick(_ sender: UISegmentedControl) {
         if currentSortSelection != sender.selectedSegmentIndex {
             resetValues()
@@ -43,7 +48,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         EZLoadingActivity.show(LOADING_TEXT, disableUI: true)
@@ -59,7 +63,23 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         // Do any additional setup after loading the view.
     }
-
+    
+    private func getCellWidth()->CGSize{
+        let screenWidth = UIScreen.main.nativeBounds.width
+        if screenWidth < iPhonePlusSize && screenWidth == UIScreen.main.bounds.width*2{
+            let cellWidth = screenWidth/(3*2*1.5)
+            portraitWidth = cellWidth
+        }else{
+            portraitWidth = fallbackWidth
+        }
+        return CGSize(width: portraitWidth, height: flowLayout.itemSize.height)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return getCellWidth()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -152,9 +172,10 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         let movieModel = self.movieModels.object(at: indexPath.row) as! MovieModel
         // Configure the cell
         Utility.loadSDWebImage(WithSize: thumbnailSize, PosterPath: movieModel.posterPath, ImageView: cell.imageView)
-    
-        return cell
+       return cell
     }
+    
+
 
 
     // MARK: UICollectionViewDelegate
