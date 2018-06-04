@@ -18,6 +18,8 @@
 		8E7F573E2056AA3F004D6295 /* HennyPenny-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F573D2056AA3F004D6295 /* HennyPenny-Regular.ttf */; };
 		8E7F57402056AA6E004D6295 /* HoltwoodOneSC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7F573F2056AA6E004D6295 /* HoltwoodOneSC.ttf */; };
 		8E7F57422056AC67004D6295 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7F57412056AC67004D6295 /* MovieDetailsViewController.swift */; };
+		8E941FE42090B32900EF068F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E941FE32090B32900EF068F /* DataManager.swift */; };
+		8E941FE82090B45500EF068F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E941FE72090B45500EF068F /* Reachability.swift */; };
 		8EAC62CB202C627E00A1F74A /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62CA202C627E00A1F74A /* ServiceFactory.swift */; };
 		8EAC62CE202C63A800A1F74A /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62CD202C63A800A1F74A /* MovieModel.swift */; };
 		8EAC62D1202C927600A1F74A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC62D0202C927600A1F74A /* Utility.swift */; };
@@ -40,6 +42,9 @@
 		8E7F573D2056AA3F004D6295 /* HennyPenny-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HennyPenny-Regular.ttf"; sourceTree = "<group>"; };
 		8E7F573F2056AA6E004D6295 /* HoltwoodOneSC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HoltwoodOneSC.ttf; sourceTree = "<group>"; };
 		8E7F57412056AC67004D6295 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		8E941FE32090B32900EF068F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		8E941FE52090B42500EF068F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8E941FE72090B45500EF068F /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8EAC62CA202C627E00A1F74A /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		8EAC62CD202C63A800A1F74A /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		8EAC62D0202C927600A1F74A /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -91,6 +96,8 @@
 		8E148AC0202ADE28008B8052 /* Movie-App */ = {
 			isa = PBXGroup;
 			children = (
+				8E941FE62090B44300EF068F /* ThirdParty */,
+				8E941FE220908F8700EF068F /* Managers */,
 				8E7F573C2056AA29004D6295 /* Fonts */,
 				8E111A332045304A006B97D3 /* CustomViews */,
 				8EAC62CF202C926100A1F74A /* Common */,
@@ -123,6 +130,22 @@
 				8E7F573D2056AA3F004D6295 /* HennyPenny-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8E941FE220908F8700EF068F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8E941FE32090B32900EF068F /* DataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		8E941FE62090B44300EF068F /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				8E941FE72090B45500EF068F /* Reachability.swift */,
+			);
+			path = ThirdParty;
 			sourceTree = "<group>";
 		};
 		8EAC62C7202C616000A1F74A /* Services */ = {
@@ -164,6 +187,7 @@
 		C0493C144F59856B54BDB838 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E941FE52090B42500EF068F /* SystemConfiguration.framework */,
 				B0FA9150A64BC936D453B163 /* Pods_Movie_App.framework */,
 			);
 			name = Frameworks;
@@ -305,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EAC62CB202C627E00A1F74A /* ServiceFactory.swift in Sources */,
+				8E941FE42090B32900EF068F /* DataManager.swift in Sources */,
 				8E148ACA202ADE28008B8052 /* Movie_App.xcdatamodeld in Sources */,
 				8E111A362045308F006B97D3 /* MovieCell.swift in Sources */,
 				8EAC62D1202C927600A1F74A /* Utility.swift in Sources */,
@@ -315,6 +340,7 @@
 				8EAC62D3202C963000A1F74A /* AppConstants.swift in Sources */,
 				8E148AC2202ADE28008B8052 /* AppDelegate.swift in Sources */,
 				8E148ADF202ADF17008B8052 /* HomeViewController.swift in Sources */,
+				8E941FE82090B45500EF068F /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
